@@ -1,0 +1,23 @@
+{{ if isset .Site.Params "features" }}
+{{ if .Site.Params.features.enable }}
+<section >
+    <div class="container">
+        {{ with site.Data.lab.lab}}
+        <section class="post">
+          <div class="row">
+            <h1>{{ .title | markdownify }}</h1>
+            {{ range .item }}
+              <br>
+              <p style="font-size:20px;" class="intro">{{ .content }}</p>
+            {{ end }}
+          </div>
+          <div class="row">
+            {{ if .image }}
+              <img class="img-responsive" src="{{.image | absURL }}" alt="">
+            {{ end }}
+        </section>
+        {{ end}}
+    </div>
+</section>
+{{ end }}
+{{ end }}
